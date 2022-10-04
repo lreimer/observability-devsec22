@@ -3,5 +3,5 @@ GET http://localhost:8080/ping
 GET http://localhost:8080/pong
 
 ###
-GET http://localhost:8080/actuator/prometheus
+GET http://localhost:8081/actuator/prometheus
 Accept: application/openmetrics-text # important to see exemplars

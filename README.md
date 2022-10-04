@@ -17,10 +17,10 @@ helm repo add grafana https://grafana.github.io/helm-charts
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update
 
-helm install --create-namespace -n kube-prometheus-stack kube-prometheus-stack prometheus-community/kube-prometheus-stack
-helm install --create-namespace -n tempo tempo grafana/tempo
-helm install --create-namespace -n promtail promtail grafana/promtail
-helm install --create-namespace -n loki loki grafana/loki
+helm install --create-namespace -n kube-prometheus-stack -f observability/kube-prometheus-stack.yaml kube-prometheus-stack prometheus-community/kube-prometheus-stack
+helm install --create-namespace -n tempo -f observability/tempo.yaml tempo grafana/tempo
+helm install --create-namespace -n promtail -f observability/promtail.yaml promtail grafana/promtail
+helm install --create-namespace -n loki -f observability/loki.yaml loki grafana/loki
 
 kubectl port-forward -n kube-prometheus-stack deployment/kube-prometheus-stack-grafana 3000:3000
 open http://localhost:3000

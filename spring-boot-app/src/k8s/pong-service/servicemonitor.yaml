@@ -1,0 +1,19 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: pong-service
+  labels:
+    app: ping-pong
+    service: pong
+spec:
+  selector:
+    matchLabels:
+      app: ping-pong
+      service: pong
+  endpoints:
+    - port: http-management
+      scrapeTimeout: 1s
+      scheme: http
+      path: "/actuator/prometheus"
+      interval: "5s"

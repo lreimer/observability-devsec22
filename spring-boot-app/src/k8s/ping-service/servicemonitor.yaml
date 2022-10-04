@@ -2,13 +2,15 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: ping-pong
+  name: ping-service
   labels:
     app: ping-pong
+    service: ping
 spec:
   selector:
     matchLabels:
       app: ping-pong
+      service: ping
   endpoints:
     - port: http-management
       scrapeTimeout: 1s
