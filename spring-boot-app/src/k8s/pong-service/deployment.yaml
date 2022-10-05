@@ -51,7 +51,7 @@ spec:
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: http://tempo.tempo:4317
             - name: OTEL_SERVICE_NAME
-              value: ping-service
+              value: pong-service
             - name: KUBE_POD_NAME
               valueFrom:
                 fieldRef:
